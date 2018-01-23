@@ -22,12 +22,10 @@ public class RobotController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-           if (collision.gameObject.tag == "Ground")
-            {
+        if (collision.gameObject.tag == "Ground")
+        {
             grounded = true;
-            }
-      
-       
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -36,7 +34,5 @@ public class RobotController : MonoBehaviour {
         {
             grounded = false;
         }
-
-
     }
 }
