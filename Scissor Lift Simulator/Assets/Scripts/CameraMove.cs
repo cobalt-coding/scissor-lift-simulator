@@ -13,6 +13,6 @@ public class CameraMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3 (temporaryRobot.position.x -1, -1, -1);
+        transform.position = new Vector3 (temporaryRobot.position.x -0, -1, 0);
 	}
 }
