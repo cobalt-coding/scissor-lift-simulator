@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class RobotController : MonoBehaviour {
     
-    public Rigidbody2D rb;
     public float force = 50;
     public float jumpForce = 500;
     public float speedLimit = 7;
+
+    public Rigidbody2D rb;
     public SpriteRenderer sr;
+
+    public float health = 100;
     private bool grounded = false;
 
 	// Update is called once per frame
@@ -29,17 +32,24 @@ public class RobotController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        switch(collision.gameObject.tag)
         {
-            grounded = true;
+            case "Ground":
+                grounded = true;
+                break;
+            case "DamagingBoy":
+                health-=10;
+                break;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        switch(collision.gameObject.tag)
         {
-            grounded = false;
+            case "Ground":
+                grounded = false;
+                break;
         }
     }
 
