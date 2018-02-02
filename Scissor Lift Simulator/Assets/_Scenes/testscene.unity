@@ -701,6 +701,16 @@ Prefab:
       propertyPath: redFlash
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114135847381055986, guid: 8af0adc0db58fbf489a530edf1cc7054,
+        type: 2}
+      propertyPath: fallMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114135847381055986, guid: 8af0adc0db58fbf489a530edf1cc7054,
+        type: 2}
+      propertyPath: lowJumpMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8af0adc0db58fbf489a530edf1cc7054, type: 2}
   m_IsPrefabParent: 0
