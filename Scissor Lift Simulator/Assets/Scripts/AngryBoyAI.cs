@@ -23,7 +23,7 @@ public class AngryBoyAI : MonoBehaviour {
             rb.AddForce(new Vector2(-force, 0) * Time.deltaTime);
 
         
-        if (Math.Abs(rb.velocity.x) < 1 && Time.frameCount - delay > 10)
+        if (Math.Abs(rb.velocity.x) <= 0 && Time.frameCount - delay > 10)
         {
             right = !right;
             delay = Time.frameCount;
