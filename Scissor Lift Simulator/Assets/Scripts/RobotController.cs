@@ -7,6 +7,8 @@ public class RobotController : MonoBehaviour {
     public float force = 50;
     public float jumpForce = 500;
     public float speedLimit = 7;
+    public float fallMultiplier = 4f;
+    public float lowJumpMultiplier = 5f;
 
     public Rigidbody2D rb;
     public SpriteRenderer sr;
@@ -22,9 +24,16 @@ public class RobotController : MonoBehaviour {
         {
             rb.AddForce(new Vector2(0, jumpForce)*Time.deltaTime);
         }
+        
+        if(rb.velocity.y < -0.01f)
+        {
+            rb.velocity -= (Vector2.up * fallMultiplier * Time.deltaTime * 10);
+        } else if (rb.velocity.y > 0.01f && !Input.GetKey("space")) {
+            rb.velocity -= (Vector2.up * lowJumpMultiplier * Time.deltaTime * 10);
+        }
+        
 
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speedLimit, speedLimit), rb.velocity.y);
-        Debug.Log(rb.velocity.x);
 
         robotFlip();
 
