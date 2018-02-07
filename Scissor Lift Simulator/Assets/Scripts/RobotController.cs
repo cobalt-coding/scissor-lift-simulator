@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RobotController : MonoBehaviour {
-    
+
+    public GameObject DeathScreenBkgd;
+    public GameObject corpse;
+    public Vector3 spawnpoint;
+
     public float force = 50;
     public float jumpForce = 500;
     public float speedLimit = 7;
@@ -16,8 +21,15 @@ public class RobotController : MonoBehaviour {
     public float health = 100;
     private bool grounded = false;
 
-	// Update is called once per frame
-	void Update () {
+    public bool createdBkgd = false;
+
+    void Start()
+    {
+        spawnpoint = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update () {
         rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*force, 0)*Time.deltaTime);
 
         if (Input.GetKeyDown("space") && grounded == true)
@@ -35,7 +47,11 @@ public class RobotController : MonoBehaviour {
 
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speedLimit, speedLimit), rb.velocity.y);
 
-        robotFlip();
+        RobotFlip();
+        if(health <= 0)
+        {
+            Death();
+        }
 
     }
 
@@ -62,7 +78,7 @@ public class RobotController : MonoBehaviour {
         }
     }
 
-    private void robotFlip()
+    private void RobotFlip()
     {
         if (Input.GetAxis("Horizontal") > 0)
         {
@@ -71,6 +87,26 @@ public class RobotController : MonoBehaviour {
         else if (Input.GetAxis("Horizontal") < 0)
         {
             sr.flipX = true;
+        }
+    }
+
+    private void Death()
+    {
+        if (!createdBkgd) //Death
+        {
+            Instantiate(DeathScreenBkgd, transform);
+            createdBkgd = true;
+            Instantiate(corpse, transform);
+        }
+
+        if(Input.GetKeyDown("r")) //Restarting the level
+        {
+            health = 100;
+            createdBkgd = false;
+            Destroy(GameObject.FindWithTag("Respawn"));
+            transform.position = spawnpoint;
+            
+
         }
     }
 
