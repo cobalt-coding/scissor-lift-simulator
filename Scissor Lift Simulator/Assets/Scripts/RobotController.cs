@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RobotController : MonoBehaviour {
 
@@ -22,6 +23,8 @@ public class RobotController : MonoBehaviour {
     private bool grounded = false;
 
     public bool createdBkgd = false;
+
+    public Text healthText;
 
     void Start()
     {
@@ -53,6 +56,13 @@ public class RobotController : MonoBehaviour {
             Death();
         }
 
+        if (Input.GetKeyDown("x"))
+        {
+            health -= 10;
+        }
+
+        healthText.text = "Health: " + health;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,7 +73,8 @@ public class RobotController : MonoBehaviour {
                 grounded = true;
                 break;
             case "DamagingBoy":
-                health-=10;
+                grounded = true;
+                health -=10;
                 break;
         }
     }
@@ -73,6 +84,9 @@ public class RobotController : MonoBehaviour {
         switch(collision.gameObject.tag)
         {
             case "Ground":
+                grounded = false;
+                break;
+            case "DamagingBoy":
                 grounded = false;
                 break;
         }
@@ -94,9 +108,11 @@ public class RobotController : MonoBehaviour {
     {
         if (!createdBkgd) //Death
         {
+            Vector3 pos = transform.position;
+            Quaternion rot = transform.rotation;
             Instantiate(DeathScreenBkgd, transform);
             createdBkgd = true;
-            Instantiate(corpse, transform);
+            Instantiate(corpse, pos, rot);
         }
 
         if(Input.GetKeyDown("r")) //Restarting the level
