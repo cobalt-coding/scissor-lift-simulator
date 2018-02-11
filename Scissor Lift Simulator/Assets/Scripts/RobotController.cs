@@ -40,6 +40,10 @@ public class RobotController : MonoBehaviour {
             case "DamagingBoy":
                 health-=10;
                 break;
+            default:
+                grounded = true;
+                break;
+                
         }
     }
 
@@ -48,6 +52,9 @@ public class RobotController : MonoBehaviour {
         switch(collision.gameObject.tag)
         {
             case "Ground":
+                grounded = false;
+                break;
+            default:
                 grounded = false;
                 break;
         }
