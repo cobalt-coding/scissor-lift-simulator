@@ -35,6 +35,11 @@ public class RobotController : MonoBehaviour {
     void Update () {
         rb.AddForce(new Vector2(Input.GetAxis("Horizontal")*force, 0)*Time.deltaTime);
 
+        if (Input.GetKeyDown("speed"))
+        {
+
+        }
+
         if (Input.GetKeyDown("space") && grounded == true)
         {
             rb.AddForce(new Vector2(0, jumpForce)*Time.deltaTime);
