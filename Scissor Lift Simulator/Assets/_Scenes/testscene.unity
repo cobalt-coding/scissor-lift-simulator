@@ -590,6 +590,47 @@ Transform:
   m_PrefabParentObject: {fileID: 4892039249794550, guid: 6ff674cc2ad208b49b43a39c66b1d11a,
     type: 2}
   m_PrefabInternal: {fileID: 1726000832}
+--- !u!1 &470090435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 470090437}
+  - component: {fileID: 470090436}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &470090436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470090435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c671c9b94edbad640b28a7a251bdeb5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Robot: {fileID: 1044669162}
+--- !u!4 &470090437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470090435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.815, y: 0.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &732583419
 Prefab:
   m_ObjectHideFlags: 0
@@ -862,6 +903,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4892039249794550, guid: 6ff674cc2ad208b49b43a39c66b1d11a,
     type: 2}
   m_PrefabInternal: {fileID: 732583419}
+--- !u!1 &1044669162 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1294166864071170, guid: 8af0adc0db58fbf489a530edf1cc7054,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008459139}
 --- !u!1 &1128850336
 GameObject:
   m_ObjectHideFlags: 0
