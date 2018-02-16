@@ -9,6 +9,10 @@ public class BasicWeapon : MonoBehaviour
     public Color bulletLineColorNull = Color.cyan; //Set what color you want the bullet line to be when it DOES NOT hit something
     public Color bulletLineColorValid = Color.red; //Set what color you want the bullet line to be when it DOES hit something
 
+    Vector2 mousePosition;
+    Vector2 firePointPosition;
+    RaycastHit2D hit;
+
     float timeToFire = 0; //Used later
     public Transform firePoint; //Make an object of where you want to fire FROM and call it "Fire Point"
 
@@ -41,9 +45,9 @@ public class BasicWeapon : MonoBehaviour
 
     void Shoot()
     {
-        Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y); //Find mouse position
-        Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y); //Make a Vector2 that holds the firePointPosition
-        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, (mousePosition - firePointPosition), 100, whatToHit); //Make a raycast from the firePoint to the mousePosition
+        mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y); //Find mouse position
+        firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y); //Make a Vector2 that holds the firePointPosition
+        hit = Physics2D.Raycast(firePointPosition, (mousePosition - firePointPosition), 100, whatToHit); //Make a raycast from the firePoint to the mousePosition
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, bulletLineColorNull); //Draw a line where it shoots
         if (hit.collider != null) //If it hits something...
         {
