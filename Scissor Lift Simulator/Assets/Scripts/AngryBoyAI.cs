@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AngryBoyAI : MonoBehaviour {
 
+    public GameObject actualText;
     public Rigidbody2D rb;
     public bool right = true;
     public float force = 2000;
     int delay;
+    public int health = 100;
 
     // Use this for initialization
     void Start() {
@@ -28,5 +29,8 @@ public class AngryBoyAI : MonoBehaviour {
             right = !right;
             delay = Time.frameCount;
         }
-	}
+
+        actualText.GetComponent<RectTransform>().position = transform.position;
+        actualText.GetComponent<Text>().text = "Enemy Health: " + health;
+    }
 }
