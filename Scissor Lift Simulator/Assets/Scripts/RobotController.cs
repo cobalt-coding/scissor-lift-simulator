@@ -42,7 +42,7 @@ public class RobotController : MonoBehaviour {
         */
         if (Input.GetKeyDown("space") && grounded == true)
         {
-            rb.AddForce(new Vector2(0, jumpForce)*Time.deltaTime);
+            rb.AddForce(new Vector2(0, jumpForce));
         }
         
         if(rb.velocity.y < -0.01f)
@@ -56,7 +56,7 @@ public class RobotController : MonoBehaviour {
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speedLimit, speedLimit), rb.velocity.y);
 
         RobotFlip();
-        if(health <= 0)
+        if (health <= 0)
         {
             Death();
         }
@@ -126,7 +126,6 @@ public class RobotController : MonoBehaviour {
             createdBkgd = false;
             Destroy(GameObject.FindWithTag("Respawn"));
             transform.position = spawnpoint;
-            
 
         }
     }
