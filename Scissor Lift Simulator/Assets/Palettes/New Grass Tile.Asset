@@ -7,11 +7,11 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: betterGrass_1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e57dcd198fc2646ad2a5f272595469, type: 3}
+  m_Name: New Grass Tile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300002, guid: f35c3e9e801870144a0926d0a421c17a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd2c19bea66981d428f403637098f258, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,3 +33,6 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
+  grassSprites:
+  - {fileID: 21300000, guid: dd2c19bea66981d428f403637098f258, type: 3}
+  - {fileID: 21300000, guid: 2dd798e958928ab4780b8a6e0753e9ce, type: 3}
