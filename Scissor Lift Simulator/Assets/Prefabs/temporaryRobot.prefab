@@ -134,7 +134,7 @@ MonoBehaviour:
   corpse: {fileID: 1762167107103480, guid: 4090ad727e0bf9648979e97dcedb270a, type: 2}
   spawnpoint: {x: 0, y: 0, z: 0}
   force: 500
-  jumpForce: 10000
+  jumpForce: 200
   speedLimit: 7
   fallMultiplier: 2
   lowJumpMultiplier: 3
