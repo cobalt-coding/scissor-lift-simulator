@@ -14,7 +14,6 @@ public class AngryBoyAI : MonoBehaviour {
     // Use this for initialization
     void Start() {
         new Vector2(force, 0);
-        actualText = GameObject.Find("Enemy Health Text");
     }
 	
 	// Update is called once per frame
