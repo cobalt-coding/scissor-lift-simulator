@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874460827944508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1679497, y: -2.4478028, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.08, y: -0.49, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,14 +81,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.88, y: 0.8}
+    oldSize: {x: 0.11, y: 0.1}
     newSize: {x: 0.11, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87, y: 0.81}
+  m_Size: {x: 0.11, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &114215680558495672
 MonoBehaviour:
@@ -101,11 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114dbe69070c754408fc5645aa242174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualText: {fileID: 0}
   rb: {fileID: 50319715535176290}
   right: 1
   force: 1000
-  health: 100
 --- !u!198 &198407232674288106
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -166,7 +164,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1955869201
+  randomSeed: -2332476
   InitialModule:
     serializedVersion: 3
     enabled: 1
