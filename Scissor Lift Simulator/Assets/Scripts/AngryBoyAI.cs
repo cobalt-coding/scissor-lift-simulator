@@ -32,5 +32,16 @@ public class AngryBoyAI : MonoBehaviour {
 
         actualText.GetComponent<RectTransform>().position = transform.position;
         actualText.GetComponent<Text>().text = "Enemy Health: " + health;
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }

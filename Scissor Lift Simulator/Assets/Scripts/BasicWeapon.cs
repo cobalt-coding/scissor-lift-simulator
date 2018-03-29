@@ -8,6 +8,7 @@ public class BasicWeapon : MonoBehaviour
     public LayerMask whatToHit; //Put things that should be hit in this layer
     public Color bulletLineColorNull = Color.cyan; //Set what color you want the bullet line to be when it DOES NOT hit something
     public Color bulletLineColorValid = Color.red; //Set what color you want the bullet line to be when it DOES hit something
+    public Color bulletLineColorInterrupted = Color.green;
 
     Vector2 mousePosition;
     Vector2 firePointPosition;
@@ -46,13 +47,33 @@ public class BasicWeapon : MonoBehaviour
     void Shoot()
     {
         mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y); //Find mouse position
+
         firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y); //Make a Vector2 that holds the firePointPosition
+
         hit = Physics2D.Raycast(firePointPosition, (mousePosition - firePointPosition), 100, whatToHit); //Make a raycast from the firePoint to the mousePosition
+
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, bulletLineColorNull); //Draw a line where it shoots
+
+        bool active = true;
+
         if (hit.collider != null) //If it hits something...
         {
             Debug.DrawLine(firePointPosition, hit.point, bulletLineColorValid); //...make a line from the firePoint to what it hit...
             Debug.Log("Hit: " + hit.collider.name + ". Damage: " + damage); //...and write info about it in Debug.Log(Change this to actually do damage later)
+
+            Debug.Log(hit.transform.tag);
+
+            if (hit.transform.tag == "Ground")
+            {
+                Debug.DrawLine(firePointPosition, hit.point, bulletLineColorInterrupted);
+                active = false;
+                Debug.Log("Bullet disrupted");
+            }
+
+            if (active)
+            {
+                hit.transform.gameObject.GetComponent<AngryBoyAI>().health -= (int)damage;
+            }
         }
     }
 }

@@ -157,6 +157,10 @@ Prefab:
       propertyPath: actualText
       value: 
       objectReference: {fileID: 135059361}
+    - target: {fileID: 1874460827944508, guid: 12e6d8f4c58e34442b1a804e7fb2d721, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 199299884056351818, guid: 12e6d8f4c58e34442b1a804e7fb2d721, type: 2}
     - {fileID: 198407232674288106, guid: 12e6d8f4c58e34442b1a804e7fb2d721, type: 2}
@@ -187,7 +191,7 @@ RectTransform:
   m_GameObject: {fileID: 135059361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.07142855, y: 0.07142855, z: 0.07142855}
   m_Children: []
   m_Father: {fileID: 1817196496}
   m_RootOrder: 0
@@ -518,7 +522,7 @@ GameObject:
   - component: {fileID: 1462652072}
   - component: {fileID: 1462652071}
   - component: {fileID: 1462652073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_base
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2173,6 +2177,11 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 828692687}
+    - target: {fileID: 114258874432553116, guid: 8af0adc0db58fbf489a530edf1cc7054,
+        type: 2}
+      propertyPath: whatToHit.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8af0adc0db58fbf489a530edf1cc7054, type: 2}
   m_IsPrefabParent: 0
