@@ -30,7 +30,7 @@ public class AngryBoyAI : MonoBehaviour {
             delay = Time.frameCount;
         }
 
-        actualText.GetComponent<RectTransform>().position = transform.position;
+        //actualText.GetComponent<RectTransform>().position = transform.position;
         actualText.GetComponent<Text>().text = "Enemy Health: " + health;
 
         if (health <= 0)
