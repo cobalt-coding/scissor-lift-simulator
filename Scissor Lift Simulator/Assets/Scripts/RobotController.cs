@@ -26,6 +26,8 @@ public class RobotController : MonoBehaviour {
 
     public Text healthText;
 
+    public float iframes = 0;
+
     void Start()
     {
         spawnpoint = transform.position;
@@ -68,6 +70,8 @@ public class RobotController : MonoBehaviour {
 
         healthText.text = "Health: " + health;
 
+        iframes--;
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -79,7 +83,10 @@ public class RobotController : MonoBehaviour {
                 break;
             case "DamagingBoy":
                 grounded = true;
-                health -=10;
+                if (iframes < 0){
+                    health -= 10;
+                    iframes = 100;
+                }
                 break;
         }
     }
